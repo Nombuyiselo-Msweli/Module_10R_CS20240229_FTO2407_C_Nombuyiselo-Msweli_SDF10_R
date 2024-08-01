@@ -11,3 +11,4 @@ addButtonEl.addEventListener("click", function() {
     
     console.log(inputValue)
 })
+

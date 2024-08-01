@@ -1,4 +1,46 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #bae6a5;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    margin: 30px auto;
+}
+
+img {
+    width: 300px;
+    margin: 0 auto;
+}
+
+input,  button {
+    border: 0;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+input {
+    color: #432000;
+    background-color: #DCE1EB;
+    font-family: "PT Serif", serif;
+    font-size: 25px;
+    font-weight: 400;
+    font-style: normal;
+    margin: 10px 0;
+}
+
+#add-button {
+    color: whitesmoke;
+    background-color: #87ae73;
+    font-family:"Cute Font", sans-serif;
+    font-size: 35px;
+    font-weight: 400;
+    font-style: normal;
 }
