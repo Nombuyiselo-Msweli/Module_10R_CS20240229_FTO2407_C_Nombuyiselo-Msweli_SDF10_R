@@ -60,10 +60,10 @@ ul {
     padding: 0 ;
     list-style-type: none;
     gap: 10px;
-    /* justify-content: center; */
 }
 
 ul li {
+    flex-grow: 1;
     font-family:"PT Serif", serif;
     background-color: #432000;
     color: whitesmoke; 
