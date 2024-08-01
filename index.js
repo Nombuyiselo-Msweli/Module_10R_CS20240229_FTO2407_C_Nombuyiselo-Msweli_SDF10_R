@@ -25,20 +25,22 @@ addButtonEl.addEventListener("click", function() {
     push(shoppingListInDB, inputValue)
 
     clearInputFieldEl()                  //clears text box after input has been pushed
-
-    
 })
 
 onValue(shoppingListInDB, function(snapshot) {
-    let itemsArray = Object.values(snapshot.val())  //converting object in databse to an array visible in the browser, console.log(itemsArray) to check that it works
+    let itemsArray = Object.values(snapshot.val())         //converting object in databse to an array visible in the browser, console.log(itemsArray) to check that it works
     
-    shoppingListEl.innerHTML = "" 
+    clearShoppingListEl()
     
     for (let i = 0; i < itemsArray.length; i++) {         //returns items as separate 
         
         updateShoppingListElWithItem(itemsArray[i])       //updateShoppingListElWithItem(inputValue) //pushes new list item from text input to the list of items in the shopping cart
     }
 })
+
+function clearShoppingListEl(){
+    shoppingListEl.innerHTML = "" 
+}
 
 function clearInputFieldEl() {        
     inputFieldEl.value = ""
