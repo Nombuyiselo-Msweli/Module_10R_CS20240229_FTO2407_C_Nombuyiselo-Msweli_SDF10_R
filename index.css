@@ -79,9 +79,11 @@ ul li {
 #add-button:hover {
     color:  #87ae73;
     background-color: whitesmoke;
+    cursor: pointer;
 }
 
 ul li:hover {
     background-color: whitesmoke;
     color:  #432000;
+    cursor: pointer;
 }
