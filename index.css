@@ -1,3 +1,5 @@
+
+/* GENERAL*/
 html, body {
     margin: 0;
     padding: 0;
@@ -15,6 +17,8 @@ html, body {
     max-width: 320px;
     margin: 30px auto;
 }
+
+/* IMAGE, INPUT AND BUTTON*/
 
 img {
     width: 300px;
@@ -43,7 +47,28 @@ input {
     color: whitesmoke;
     background-color: #87ae73;
     font-family:"Cute Font", sans-serif;
-    font-size: 35px;
+    font-size: 40px;
     font-weight: 400;
     font-style: normal;
+}
+
+/* SHOPPING CART ITEMS*/
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    gap: 10px;
+}
+
+ul li {
+    font-family:"PT Serif", serif;
+    background-color: #432000;
+    color: whitesmoke; 
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    font-size: 25px;
+    text-align: center; 
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
 }
