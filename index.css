@@ -4,7 +4,9 @@ html, body {
     font-family: "PT Serif", serif;
     font-weight: 400;
     font-style: normal;
-    background-color: #bae6a5;
+    background-image: url(images/food-bg.png);
+    background-position: center;
+    background-size: cover;
 }
 
 .container {
@@ -17,6 +19,7 @@ html, body {
 img {
     width: 300px;
     margin: 0 auto;
+    box-shadow: 2px 2px #432000;
 }
 
 input,  button {

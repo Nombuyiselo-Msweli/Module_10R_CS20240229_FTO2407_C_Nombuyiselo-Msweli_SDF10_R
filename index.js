@@ -1,7 +1,7 @@
 //=== DATABASE CONNECTION SECTION ===
 //creating communication between the app and the database by firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref , push} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref , push, onValue} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://food-cart-15a72-default-rtdb.asia-southeast1.firebasedatabase.app/"    //link to firebase real time database
@@ -31,13 +31,19 @@ addButtonEl.addEventListener("click", function() {
     
 })
 
-function clearInputFieldEl() {
+onValue(shoppingListInDB, function(snapshot) {
+    let itemsArray = Object.values(snapshot.val())        //converting object in databse to an array visible in the browser
+    console.log(itemsArray)
+})
+
+function clearInputFieldEl() {        
     inputFieldEl.value = ""
 }
 
 function  updateShoppingListElWithItem(itemValue) {
     shoppingListEl.innerHTML += `<li>${itemValue}</li>`
 }
+
 
 
 
