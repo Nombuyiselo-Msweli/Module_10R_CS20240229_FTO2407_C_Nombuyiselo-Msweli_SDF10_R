@@ -28,18 +28,23 @@ addButtonEl.addEventListener("click", function() {
 })
 
 onValue(shoppingListInDB, function(snapshot) {
-    let itemsArray = Object.entries(snapshot.val())         //converting object in databse to an array visible in the browser, console.log(itemsArray) to check that it works, object.values for values without ids
-    
-    clearShoppingListEl()
-    
-    for (let i = 0; i < itemsArray.length; i++) {         //returns items as separate 
-        let currentItem = itemsArray[i]
 
-        let currentItemID = currentItem[0]
-        let currentItemValue = currentItem[1]
+    if (snapshot.exists()) {
+        let itemsArray = Object.entries(snapshot.val())         //converting object in databse to an array visible in the browser, console.log(itemsArray) to check that it works, object.values for values without ids
+        
+        clearShoppingListEl()
+        
+        for (let i = 0; i < itemsArray.length; i++) {         //returns items as separate 
+            let currentItem = itemsArray[i]
 
-        updateShoppingListElWithItem(currentItem)       
-    }
+            let currentItemID = currentItem[0]
+            let currentItemValue = currentItem[1]
+
+            updateShoppingListElWithItem(currentItem)       
+        }
+} else {
+    shoppingListEl.innerHTML = "No items here... yet"
+}
 })
 
 function clearShoppingListEl(){

@@ -9,6 +9,7 @@ html, body {
     background-image: url(images/food-bg.png);
     background-position: center;
     background-size: cover;
+    user-select: none;  /* doesn't allow users to select neither the image or any text on the page*/
 }
 
 .container {
