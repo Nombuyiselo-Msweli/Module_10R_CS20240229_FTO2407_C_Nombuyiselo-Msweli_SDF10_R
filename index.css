@@ -74,3 +74,14 @@ ul li {
     border: none;
     border-radius: 4px;
 }
+
+/* hover functionality (although wont be visible on mobile)*/
+#add-button:hover {
+    color:  #87ae73;
+    background-color: whitesmoke;
+}
+
+ul li:hover {
+    background-color: whitesmoke;
+    color:  #432000;
+}

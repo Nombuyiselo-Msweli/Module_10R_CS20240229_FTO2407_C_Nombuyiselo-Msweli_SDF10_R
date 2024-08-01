@@ -1,7 +1,7 @@
 //=== DATABASE CONNECTION SECTION ===
 //creating communication between the app and the database by firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref , push, onValue} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref , push, onValue, remove} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://food-cart-15a72-default-rtdb.asia-southeast1.firebasedatabase.app/"    //link to firebase real time database
@@ -28,13 +28,17 @@ addButtonEl.addEventListener("click", function() {
 })
 
 onValue(shoppingListInDB, function(snapshot) {
-    let itemsArray = Object.values(snapshot.val())         //converting object in databse to an array visible in the browser, console.log(itemsArray) to check that it works
+    let itemsArray = Object.entries(snapshot.val())         //converting object in databse to an array visible in the browser, console.log(itemsArray) to check that it works, object.values for values without ids
     
     clearShoppingListEl()
     
     for (let i = 0; i < itemsArray.length; i++) {         //returns items as separate 
-        
-        updateShoppingListElWithItem(itemsArray[i])       //updateShoppingListElWithItem(inputValue) //pushes new list item from text input to the list of items in the shopping cart
+        let currentItem = itemsArray[i]
+
+        let currentItemID = currentItem[0]
+        let currentItemValue = currentItem[1]
+
+        updateShoppingListElWithItem(currentItem)       
     }
 })
 
@@ -46,8 +50,22 @@ function clearInputFieldEl() {
     inputFieldEl.value = ""
 }
 
-function  updateShoppingListElWithItem(itemValue) {
-    shoppingListEl.innerHTML += `<li>${itemValue}</li>`
+function  updateShoppingListElWithItem(item) {           
+    //shoppingListEl.innerHTML += `<li>${itemValue}</li>` //updateShoppingListElWithItem(inputValue) //pushes new list item from text input to the list of items in the shopping cart.
+
+    let itemID = item[0]
+    let itemValue = item[1]
+
+    let newEl = document.createElement("li")
+    
+    newEl.textContent = itemValue
+
+    newEl.addEventListener("click", function() {                                  //removes item from shopping list database folder using the ID of the item
+        let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`)
+        remove(exactLocationOfItemInDB)
+    })
+
+    shoppingListEl.append(newEl) 
 }
 
 
